@@ -5,6 +5,18 @@ const highlights = [
   { icon: "📚", label: "Always Learning", value: "Cloud & AI" },
 ];
 
+const education = [
+  {
+    degree: "Bachelor of Science",
+    field: "Computer Science",
+    institution: "Rajamangala University of Technology",
+    period: "2018 — 2022",
+    icon: "🎓",
+  },
+];
+
+const interests = ["Web Architecture", "Cloud Computing", "AI Integration", "Open Source", "UX Design", "DevOps"];
+
 export default function About() {
   return (
     <section id="about" className="py-24 px-6 bg-white">
@@ -17,7 +29,7 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">About Me</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-14 items-center">
+        <div className="grid md:grid-cols-2 gap-14 items-start">
           {/* Text content */}
           <div className="space-y-5 text-gray-600 leading-relaxed">
             <p>
@@ -37,6 +49,22 @@ export default function About() {
               currently focused on scalable web apps, e-service platforms, and exploring cloud
               architecture and AI integration.
             </p>
+
+            {/* Interests */}
+            <div className="pt-2">
+              <p className="text-sm font-semibold text-gray-700 mb-3">Interests & Focus Areas</p>
+              <div className="flex flex-wrap gap-2">
+                {interests.map((item) => (
+                  <span
+                    key={item}
+                    className="bg-indigo-50 text-indigo-700 text-xs font-medium px-3 py-1.5 rounded-full border border-indigo-100"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             <div className="pt-2">
               <a
                 href="mailto:khomkrit.d@outlook.com"
@@ -50,18 +78,41 @@ export default function About() {
             </div>
           </div>
 
-          {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-5">
-            {highlights.map((item) => (
-              <div
-                key={item.label}
-                className="bg-slate-50 border border-slate-100 rounded-2xl p-6 hover:border-indigo-200 hover:shadow-sm transition-all"
-              >
-                <div className="text-2xl mb-3">{item.icon}</div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">{item.value}</div>
-                <div className="text-sm text-gray-500">{item.label}</div>
-              </div>
-            ))}
+          <div className="space-y-6">
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {highlights.map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-slate-50 border border-slate-100 rounded-2xl p-5 hover:border-indigo-200 hover:shadow-sm transition-all"
+                >
+                  <div className="text-2xl mb-2">{item.icon}</div>
+                  <div className="text-2xl font-bold text-gray-900 mb-0.5">{item.value}</div>
+                  <div className="text-xs text-gray-500">{item.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Education */}
+            <div>
+              <p className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">Education</p>
+              {education.map((edu) => (
+                <div
+                  key={edu.institution}
+                  className="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 rounded-2xl p-5 hover:shadow-sm transition-all"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">{edu.icon}</span>
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">{edu.degree}</p>
+                      <p className="text-indigo-600 text-sm font-medium">{edu.field}</p>
+                      <p className="text-gray-500 text-xs mt-1">{edu.institution}</p>
+                      <p className="text-gray-400 text-xs mt-0.5">{edu.period}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
