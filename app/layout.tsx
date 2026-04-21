@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Khomkrit TK — Full Stack Developer",
+  title: "Khomkrit TK — Backend Developer",
   description:
-    "Portfolio of Khomkrit TK, a Full Stack Developer from Thailand specializing in React, Next.js, Node.js and modern web technologies.",
+    "Portfolio of Khomkrit TK, a Backend Developer from Thailand specializing in Go, Gin, GORM, NestJS, Redis, Docker, and scalable government e-service platforms.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-gray-900">
+      <body className="min-h-full flex flex-col bg-[#03070f] text-slate-100">
         {children}
       </body>
     </html>

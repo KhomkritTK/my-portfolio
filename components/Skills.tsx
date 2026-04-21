@@ -1,162 +1,203 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+
 const skillGroups = [
   {
-    category: "Languages",
-    icon: "⚡",
-    color: "from-blue-50 to-indigo-50",
-    border: "border-blue-100 hover:border-blue-300",
-    badge: "bg-blue-100 text-blue-700 border-blue-200",
-    heading: "text-blue-700",
-    skills: ["TypeScript", "JavaScript", "Python", "HTML", "CSS"],
+    category: "Backend",
+    icon: "🔧",
+    accent: "cyan",
+    border: "border-cyan-500/15 hover:border-cyan-500/35",
+    bar: "bg-gradient-to-r from-cyan-500 to-cyan-400",
+    badge: "tag-cyan",
+    skills: [
+      { name: "Go / Gin", level: 90 },
+      { name: "GORM", level: 85 },
+      { name: "NestJS", level: 88 },
+      { name: "REST API", level: 95 },
+      { name: "PHP", level: 72 },
+    ],
   },
   {
     category: "Frontend",
     icon: "🎨",
-    color: "from-pink-50 to-purple-50",
-    border: "border-pink-100 hover:border-pink-300",
-    badge: "bg-pink-100 text-pink-700 border-pink-200",
-    heading: "text-pink-700",
-    skills: ["React", "Next.js", "Vue.js", "Tailwind CSS", "Vite"],
-  },
-  {
-    category: "Backend",
-    icon: "🔧",
-    color: "from-emerald-50 to-teal-50",
-    border: "border-emerald-100 hover:border-emerald-300",
-    badge: "bg-emerald-100 text-emerald-700 border-emerald-200",
-    heading: "text-emerald-700",
-    skills: ["Node.js", "NestJS", "Express", "REST API", "GraphQL"],
+    accent: "violet",
+    border: "border-violet-500/15 hover:border-violet-500/35",
+    bar: "bg-gradient-to-r from-violet-500 to-violet-400",
+    badge: "tag-violet",
+    skills: [
+      { name: "React", level: 85 },
+      { name: "Next.js", level: 82 },
+      { name: "TypeScript", level: 88 },
+      { name: "Tailwind CSS", level: 90 },
+    ],
   },
   {
     category: "Database",
     icon: "🗄️",
-    color: "from-amber-50 to-orange-50",
-    border: "border-amber-100 hover:border-amber-300",
-    badge: "bg-amber-100 text-amber-700 border-amber-200",
-    heading: "text-amber-700",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "TypeORM"],
+    accent: "cyan",
+    border: "border-cyan-500/15 hover:border-cyan-500/35",
+    bar: "bg-gradient-to-r from-cyan-600 to-cyan-400",
+    badge: "tag-cyan",
+    skills: [
+      { name: "PostgreSQL", level: 88 },
+      { name: "Redis", level: 85 },
+      { name: "MinIO", level: 78 },
+    ],
   },
   {
     category: "DevOps & Cloud",
     icon: "☁️",
-    color: "from-sky-50 to-cyan-50",
-    border: "border-sky-100 hover:border-sky-300",
-    badge: "bg-sky-100 text-sky-700 border-sky-200",
-    heading: "text-sky-700",
-    skills: ["Docker", "AWS", "GitHub Actions", "Linux", "Nginx"],
-  },
-  {
-    category: "Tools & Design",
-    icon: "🛠️",
-    color: "from-violet-50 to-purple-50",
-    border: "border-violet-100 hover:border-violet-300",
-    badge: "bg-violet-100 text-violet-700 border-violet-200",
-    heading: "text-violet-700",
-    skills: ["Git", "Figma", "VS Code", "Postman", "Swagger"],
+    accent: "violet",
+    border: "border-violet-500/15 hover:border-violet-500/35",
+    bar: "bg-gradient-to-r from-violet-600 to-violet-400",
+    badge: "tag-violet",
+    skills: [
+      { name: "Docker", level: 85 },
+      { name: "Linux", level: 80 },
+      { name: "Nginx", level: 72 },
+      { name: "Git / GitHub", level: 90 },
+    ],
   },
 ];
 
 const capabilities = [
   {
-    icon: "🌐",
-    title: "Web Applications",
-    description: "Full-stack web apps with clean UI, authentication, role management, and real-time features — built to scale.",
-    stack: ["Next.js", "React", "NestJS", "PostgreSQL"],
-    gradient: "from-indigo-500 to-purple-500",
-    bg: "from-indigo-50 to-purple-50",
-    border: "border-indigo-100",
+    icon: "🏛️",
+    title: "E-Service Systems",
+    desc: "Government e-service platforms with form management, document workflows, approval pipelines, and multi-department integration.",
+    stack: ["Go", "NestJS", "PostgreSQL", "Docker"],
+    accent: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/15",
   },
   {
     icon: "⚙️",
     title: "REST APIs & Backend",
-    description: "Robust, well-documented APIs with JWT auth, role-based access, pagination, and Swagger docs ready for production.",
-    stack: ["NestJS", "Node.js", "TypeORM", "Swagger"],
-    gradient: "from-emerald-500 to-teal-500",
-    bg: "from-emerald-50 to-teal-50",
-    border: "border-emerald-100",
+    desc: "Robust, well-documented APIs with JWT auth, role-based access, pagination, and Swagger docs ready for production.",
+    stack: ["Go", "NestJS", "GORM", "Redis"],
+    accent: "from-violet-500/20 to-violet-500/5 border-violet-500/15",
   },
   {
-    icon: "🏛️",
-    title: "E-Service Systems",
-    description: "Government e-service platforms with form management, document workflows, approval pipelines, and multi-department integration.",
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
-    gradient: "from-amber-500 to-orange-500",
-    bg: "from-amber-50 to-orange-50",
-    border: "border-amber-100",
+    icon: "🌐",
+    title: "Full-Stack Web Apps",
+    desc: "End-to-end web applications with clean UI, authentication, role management, and real-time features built to scale.",
+    stack: ["Next.js", "React", "NestJS", "PostgreSQL"],
+    accent: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/15",
   },
   {
     icon: "📊",
     title: "Admin Dashboards",
-    description: "Data-rich admin panels with charts, filters, export features, and user management — tailored for internal operations.",
-    stack: ["React", "Chart.js", "Tailwind CSS", "REST API"],
-    gradient: "from-sky-500 to-blue-500",
-    bg: "from-sky-50 to-blue-50",
-    border: "border-sky-100",
+    desc: "Data-rich admin panels with charts, filters, export features, and user management tailored for internal operations.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "REST API"],
+    accent: "from-violet-500/20 to-violet-500/5 border-violet-500/15",
   },
 ];
 
+function SkillBar({ name, level }: { name: string; level: number }) {
+  const [animated, setAnimated] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = barRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setAnimated(true); },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={barRef} className="mb-3 last:mb-0">
+      <div className="flex justify-between mb-1.5">
+        <span className="text-xs text-slate-300 font-medium">{name}</span>
+        <span className="text-xs text-slate-600 font-mono">{level}%</span>
+      </div>
+      <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+        <motion.div
+          className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-violet-500"
+          initial={{ width: "0%" }}
+          animate={{ width: animated ? `${level}%` : "0%" }}
+          transition={{ duration: 1.0, ease: "easeOut" }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-slate-50">
-      <div className="max-w-5xl mx-auto">
-        {/* Section header */}
-        <div className="mb-14">
-          <p className="text-sm font-medium text-indigo-600 tracking-widest uppercase mb-2">
-            What I Use
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Tech Stack & Skills</h2>
-        </div>
+    <section id="skills" className="py-24 px-6 bg-[#03070f]">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Skill categories grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
-          {skillGroups.map((group) => (
-            <div
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <p className="text-xs font-bold text-cyan-500 tracking-widest uppercase mb-3">
+            My Arsenal
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
+            Tech Stack & Skills
+          </h2>
+          <div className="mt-4 w-16 h-px bg-gradient-to-r from-cyan-500 to-violet-500" />
+        </motion.div>
+
+        {/* Skill groups with progress bars */}
+        <div className="grid sm:grid-cols-2 gap-5 mb-16">
+          {skillGroups.map((group, gi) => (
+            <motion.div
               key={group.category}
-              className={`bg-gradient-to-br ${group.color} border ${group.border} rounded-2xl p-6 transition-all hover:shadow-md`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: gi * 0.1 }}
+              className={`bento-card border ${group.border} p-6 transition-all duration-300`}
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-5">
                 <span className="text-xl">{group.icon}</span>
-                <h3 className={`font-bold text-sm uppercase tracking-wide ${group.heading}`}>
+                <h3 className="font-bold text-sm uppercase tracking-widest text-slate-300">
                   {group.category}
                 </h3>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className={`text-xs font-medium px-3 py-1.5 rounded-full border ${group.badge}`}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+              {group.skills.map((skill) => (
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+              ))}
+            </motion.div>
           ))}
         </div>
 
         {/* What I Build */}
         <div>
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">What I Build</p>
+          <p className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-6">What I Build</p>
           <div className="grid sm:grid-cols-2 gap-5">
-            {capabilities.map((cap) => (
-              <div
+            {capabilities.map((cap, i) => (
+              <motion.div
                 key={cap.title}
-                className={`bg-gradient-to-br ${cap.bg} border ${cap.border} rounded-2xl p-6 hover:shadow-md transition-all`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`bg-gradient-to-br ${cap.accent} bento-card p-6 hover:scale-[1.01] transition-all duration-300`}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${cap.gradient} flex items-center justify-center text-xl shadow-sm`}>
-                    {cap.icon}
-                  </div>
-                  <h3 className="font-bold text-gray-800">{cap.title}</h3>
+                  <span className="text-2xl">{cap.icon}</span>
+                  <h3 className="font-bold text-white">{cap.title}</h3>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">{cap.description}</p>
-                <div className="flex flex-wrap gap-1.5">
+                <p className="text-sm text-slate-500 leading-relaxed mb-4">{cap.desc}</p>
+                <div className="flex flex-wrap gap-2">
                   {cap.stack.map((s) => (
-                    <span key={s} className="text-xs font-medium bg-white/80 text-gray-600 border border-white px-2.5 py-1 rounded-full shadow-sm">
+                    <span key={s} className="text-xs font-medium tag-slate px-2.5 py-1 rounded-full">
                       {s}
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
