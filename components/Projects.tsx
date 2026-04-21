@@ -1,66 +1,61 @@
 const featuredProject = {
-  title: "E-Service Platform",
+  title: "E-Service Platform — Tourism Business & Guide Registry",
+  subtitle: "Department of Tourism, Thailand",
   description:
-    "A full-featured government e-service web application that streamlines citizen requests and administrative workflows. Built with a modern stack supporting role-based access, form management, and real-time status tracking.",
-  tags: ["Next.js", "React", "NestJS", "PostgreSQL", "Docker", "Tailwind CSS"],
+    "A comprehensive government e-service platform enabling tour businesses, licensed tour guides, and tour leaders to submit applications, verify qualifications, and receive official licenses entirely online — eliminating paper-based bureaucracy and dramatically reducing processing time for thousands of applicants nationwide.",
+  tags: ["Go", "Gin", "GORM", "React", "PostgreSQL", "Redis", "MinIO", "Docker"],
   highlights: [
-    "Role-based access control (Admin / Staff / User)",
-    "Dynamic form builder & application tracking",
-    "REST API with NestJS & Swagger documentation",
-    "Deployed with Docker Compose on AWS EC2",
+    "High-throughput REST API with Go (Gin + GORM) handling concurrent license applications",
+    "React SPA with role-based dashboards for applicants, officers, and administrators",
+    "MinIO object storage for secure document management (PDFs, certificates, ID copies)",
+    "Redis for session caching, rate limiting, and real-time application status pub/sub",
   ],
   github: "https://github.com/KhomkritTK",
   demo: null,
-  status: "In Progress",
-  statusColor: "bg-amber-100 text-amber-700",
+  status: "Delivered",
+  statusColor: "bg-green-100 text-green-700",
 };
 
 const projects = [
   {
-    title: "ระบบ E-Service กรมการท่องเที่ยว",
+    title: "Intelligent Travel Guide (ITG)",
+    subtitle: "Department of Tourism, Thailand",
     description:
-      "ระบบบริการอิเล็กทรอนิกส์สำหรับกรมการท่องเที่ยว รองรับการยื่นคำขอใบอนุญาตธุรกิจนำเที่ยว ตรวจสอบสถานะ และจัดการเอกสารออนไลน์ ลดขั้นตอนการติดต่อราชการและเพิ่มความสะดวกให้ผู้ประกอบการ",
-    tags: ["Next.js", "NestJS", "PostgreSQL", "Docker", "Tailwind CSS"],
+      "A smart travel recommendation platform aggregating attractions, activities, accommodations, and travel routes across Thailand. Built with Go microservices for high-speed data ingestion and NestJS for flexible content delivery API — featuring dynamic filtering by region, season, and traveler interests alongside a full-featured admin content dashboard.",
+    tags: ["Go", "Gin", "GORM", "NestJS", "TypeScript", "PostgreSQL", "Redis", "MinIO"],
     github: "https://github.com/KhomkritTK",
     demo: null,
     status: "Delivered",
     statusColor: "bg-green-100 text-green-700",
   },
   {
-    title: "ระบบ E-Service กรมเจ้าท่า",
+    title: "Marine Vessel Inspection Institute System",
+    subtitle: "Marine Department, Thailand",
     description:
-      "แพลตฟอร์มบริการอิเล็กทรอนิกส์สำหรับกรมเจ้าท่า รองรับการขอใบอนุญาตเดินเรือ จดทะเบียนเรือ และจัดการเอกสารทางทะเลแบบครบวงจร รองรับผู้ใช้งานหลายบทบาท",
-    tags: ["React", "Node.js", "PostgreSQL", "REST API", "Docker"],
+      "A digital platform for the Marine Vessel Inspection Institute covering license applications, renewals, and certificate replacements for chief engineers, ship officers, and maritime personnel. Manages the full inspection and certification workflow with electronic document filing and automated qualification verification.",
+    tags: ["NestJS", "TypeScript", "PHP", "PostgreSQL", "MinIO", "Redis", "Docker"],
     github: "https://github.com/KhomkritTK",
     demo: null,
     status: "Delivered",
     statusColor: "bg-green-100 text-green-700",
   },
   {
-    title: "ระบบท่องเที่ยวอัจฉริยะ ITG",
+    title: "Controlled Energy Production System",
+    subtitle: "Department of Energy, Thailand",
     description:
-      "แพลตฟอร์มท่องเที่ยวอัจฉริยะที่รวบรวมข้อมูลแหล่งท่องเที่ยว กิจกรรม ที่พัก และเส้นทางท่องเที่ยวทั่วประเทศ มีระบบแนะนำสถานที่ตามความสนใจและแดชบอร์ดสำหรับผู้ดูแลระบบ",
-    tags: ["Next.js", "React", "NestJS", "PostgreSQL", "Redis", "AWS"],
-    github: "https://github.com/KhomkritTK",
-    demo: null,
-    status: "In Progress",
-    statusColor: "bg-amber-100 text-amber-700",
-  },
-  {
-    title: "ระบบ E-Service กรมพลังงานทดแทน",
-    description:
-      "ระบบบริการออนไลน์สำหรับกรมพลังงานทดแทนและอนุรักษ์พลังงาน รองรับการยื่นขอใบอนุญาตติดตั้งระบบพลังงานแสงอาทิตย์ ติดตามโครงการ และรายงานการใช้พลังงาน",
-    tags: ["Vue.js", "NestJS", "PostgreSQL", "Tailwind CSS", "Docker"],
+      "An online service system for energy production license applications covering Solar PV, Wind, VSPP, and other renewable sources — along with inspector registration for energy system auditors. The Go backend handles complex business logic through a rule engine that automatically validates applicant eligibility against regulatory requirements.",
+    tags: ["Go", "Gin", "GORM", "NestJS", "TypeScript", "PostgreSQL", "Redis", "MinIO"],
     github: "https://github.com/KhomkritTK",
     demo: null,
     status: "Delivered",
     statusColor: "bg-green-100 text-green-700",
   },
   {
-    title: "ระบบ E-Service กรมป่าไม้",
+    title: "Smart Service Platform",
+    subtitle: "Royal Forest Department, Thailand",
     description:
-      "ระบบยื่นคำขออนุญาตออนไลน์ของกรมป่าไม้ รองรับการขออนุญาตใช้ประโยชน์ที่ดินป่าไม้ ติดตามสถานะคำขอแบบ Real-time และบริหารจัดการเอกสารภายในสำนักงาน",
-    tags: ["Next.js", "NestJS", "PostgreSQL", "TypeORM", "Docker", "AWS S3"],
+      "An intelligent service platform for the Royal Forest Department supporting online permit applications for forest land usage, timber notifications, and various forestry licenses. Reduces in-person visits and improves process transparency with a full audit trail that records every action across the approval workflow.",
+    tags: ["Go", "Gin", "GORM", "NestJS", "TypeScript", "PostgreSQL", "Redis", "MinIO"],
     github: "https://github.com/KhomkritTK",
     demo: null,
     status: "In Progress",
@@ -68,8 +63,9 @@ const projects = [
   },
   {
     title: "Portfolio Website",
+    subtitle: "Personal Project",
     description:
-      "Personal developer portfolio built with Next.js 16, Tailwind CSS v4, and TypeScript. Showcases projects, skills, and work experience with smooth UX and responsive design.",
+      "Personal developer portfolio built with Next.js 15, Tailwind CSS v4, and TypeScript. Showcases projects, skills, and work experience with smooth UX and responsive design.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS v4"],
     github: "https://github.com/KhomkritTK",
     demo: null,
@@ -94,16 +90,17 @@ export default function Projects() {
         <div className="mb-8">
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">⭐ Featured</p>
           <div className="border-2 border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-white rounded-2xl p-8 hover:border-indigo-300 hover:shadow-lg transition-all">
-            <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-1">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-1">{featuredProject.title}</h3>
+                <p className="text-sm text-indigo-500 font-medium">{featuredProject.subtitle}</p>
               </div>
               <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${featuredProject.statusColor}`}>
                 {featuredProject.status}
               </span>
             </div>
 
-            <p className="text-gray-600 leading-relaxed mb-6">{featuredProject.description}</p>
+            <p className="text-gray-600 leading-relaxed mb-6 mt-4">{featuredProject.description}</p>
 
             {/* Highlights */}
             <div className="grid sm:grid-cols-2 gap-2 mb-6">
@@ -149,12 +146,14 @@ export default function Projects() {
               key={project.title}
               className="border border-slate-200 rounded-2xl p-6 hover:border-indigo-200 hover:shadow-md transition-all flex flex-col"
             >
-              <div className="flex items-start justify-between gap-3 mb-3">
+              <div className="flex items-start justify-between gap-3 mb-1">
                 <h3 className="text-base font-bold text-gray-900">{project.title}</h3>
                 <span className={`text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0 ${project.statusColor}`}>
                   {project.status}
                 </span>
               </div>
+
+              <p className="text-xs text-indigo-500 font-medium mb-3">{project.subtitle}</p>
 
               <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
                 {project.description}

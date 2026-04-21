@@ -7,10 +7,10 @@ const highlights = [
 
 const education = [
   {
-    degree: "Bachelor of Science",
-    field: "Computer Science",
-    institution: "Rajamangala University of Technology",
-    period: "2018 — 2022",
+    degree: "Bachelor of Industrial Education (Second Class Honors)",
+    field: "Computer Engineering",
+    institution: "King Mongkut's Institute of Technology Ladkrabang",
+    period: "2017 — 2022",
     icon: "🎓",
   },
 ];
