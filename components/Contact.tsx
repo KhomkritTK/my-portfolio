@@ -245,7 +245,7 @@ export default function Contact() {
             © 2025 <span className="text-slate-400 font-medium">Khomkrit TK</span> — Built with Next.js & Tailwind CSS
           </p>
           <div className="flex items-center gap-5 text-sm text-slate-600">
-            <a href="#hero" className="hover:text-cyan-400 transition-colors">Back to top ↑</a>
+            <a href="/" className="hover:text-cyan-400 transition-colors">Back to top ↑</a>
             <a
               href="https://github.com/tonklasocute"
               target="_blank"

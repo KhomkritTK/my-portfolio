@@ -1,19 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -22,56 +24,36 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.3, rootMargin: "-60px 0px -40% 0px" }
-    );
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass-dark shadow-lg shadow-black/30"
-          : "bg-transparent"
+        scrolled ? "glass-dark shadow-lg shadow-black/30" : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#hero"
-          className="group flex items-center gap-2"
-        >
+        <Link href="/" className="group flex items-center gap-2">
           <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center text-xs font-black text-white shadow-lg shadow-cyan-500/25">
             K
           </span>
           <span className="text-sm font-bold text-white tracking-tight group-hover:text-cyan-400 transition-colors">
             KhomkritTK
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.replace("#", "");
+            const isActive = pathname === link.href;
             return (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "text-cyan-400"
-                      : "text-slate-400 hover:text-white"
+                    isActive ? "text-cyan-400" : "text-slate-400 hover:text-white"
                   }`}
                 >
                   {isActive && (
@@ -82,17 +64,14 @@ export default function Navbar() {
                     />
                   )}
                   <span className="relative">{link.label}</span>
-                </a>
+                </Link>
               </li>
             );
           })}
           <li className="ml-3">
-            <a
-              href="#contact"
-              className="btn-neon text-sm px-5 py-2 rounded-xl"
-            >
+            <Link href="/contact" className="btn-neon text-sm px-5 py-2 rounded-xl">
               Hire Me
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -130,22 +109,22 @@ export default function Navbar() {
             className="md:hidden glass-dark border-t border-white/5 px-6 py-4 flex flex-col gap-2"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="text-sm text-slate-300 hover:text-cyan-400 font-medium transition-colors py-2 px-3 rounded-lg hover:bg-white/5"
+                className={`text-sm font-medium transition-colors py-2 px-3 rounded-lg hover:bg-white/5 ${
+                  pathname === link.href ? "text-cyan-400" : "text-slate-300 hover:text-cyan-400"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
+            <Link
+              href="/contact"
               className="btn-neon text-sm px-4 py-2.5 rounded-xl text-center mt-1"
             >
               Hire Me
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const PHRASES = [
@@ -124,18 +125,18 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.55 }}
           className="flex flex-wrap items-center justify-center gap-4 mb-14"
         >
-          <a
-            href="#projects"
+          <Link
+            href="/projects"
             className="btn-neon px-8 py-3.5 rounded-xl text-sm font-semibold shadow-xl shadow-cyan-500/20"
           >
             View My Work →
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            href="/contact"
             className="glass border border-white/10 text-white px-8 py-3.5 rounded-xl text-sm font-semibold hover:border-cyan-500/30 hover:bg-white/5 transition-all duration-300"
           >
             Get in Touch
-          </a>
+          </Link>
         </motion.div>
 
         {/* Social links */}
@@ -198,12 +199,12 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.a
-        href="#about"
+        href="/about"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-600 hover:text-cyan-400 transition-colors"
-        aria-label="Scroll down"
+        aria-label="Go to About"
       >
         <span className="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
         <motion.svg
