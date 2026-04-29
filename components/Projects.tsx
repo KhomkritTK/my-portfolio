@@ -14,7 +14,7 @@ const featuredProject = {
     "MinIO object storage for secure document management (PDFs, certificates, ID copies)",
     "Redis for session caching, rate limiting, and real-time application status pub/sub",
   ],
-  github: "https://github.com/KhomkritTK",
+  github: "https://github.com/tonklasocute",
   status: "Delivered",
 };
 
@@ -25,7 +25,7 @@ const projects = [
     description:
       "Smart travel recommendation platform aggregating attractions, activities, accommodations, and routes across Thailand. Go microservices for high-speed data ingestion with NestJS for flexible content delivery.",
     tags: ["Go", "Gin", "GORM", "NestJS", "TypeScript", "PostgreSQL", "Redis"],
-    github: "https://github.com/KhomkritTK",
+    github: "https://github.com/tonklasocute",
     status: "Delivered",
     icon: "🗺️",
   },
@@ -35,7 +35,7 @@ const projects = [
     description:
       "Digital platform for vessel inspection covering license applications, renewals, and certificate replacements for chief engineers, ship officers, and maritime personnel.",
     tags: ["NestJS", "TypeScript", "PHP", "PostgreSQL", "MinIO", "Redis"],
-    github: "https://github.com/KhomkritTK",
+    github: "https://github.com/tonklasocute",
     status: "Delivered",
     icon: "⚓",
   },
@@ -45,7 +45,7 @@ const projects = [
     description:
       "Online service for energy production license applications — Solar PV, Wind, VSPP, renewable sources. Rule engine validates applicant eligibility against regulatory requirements.",
     tags: ["Go", "Gin", "GORM", "NestJS", "TypeScript", "PostgreSQL"],
-    github: "https://github.com/KhomkritTK",
+    github: "https://github.com/tonklasocute",
     status: "Delivered",
     icon: "⚡",
   },
@@ -55,7 +55,7 @@ const projects = [
     description:
       "Intelligent platform for forest land usage permits, timber notifications, and forestry licenses. Full audit trail records every action across the approval workflow.",
     tags: ["Go", "Gin", "GORM", "NestJS", "TypeScript", "PostgreSQL", "MinIO"],
-    github: "https://github.com/KhomkritTK",
+    github: "https://github.com/tonklasocute",
     status: "In Progress",
     icon: "🌲",
   },
@@ -65,7 +65,7 @@ const projects = [
     description:
       "This portfolio — built with Next.js 16, Tailwind CSS v4, Framer Motion, and TypeScript. Featuring dark-mode glassmorphism design and scroll-triggered animations.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS v4", "Framer Motion"],
-    github: "https://github.com/KhomkritTK",
+    github: "https://github.com/tonklasocute",
     status: "Live",
     icon: "💼",
   },
@@ -243,7 +243,7 @@ export default function Projects() {
           className="mt-12 text-center"
         >
           <a
-            href="https://github.com/KhomkritTK"
+            href="https://github.com/tonklasocute"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 glass border border-white/10 text-slate-400 hover:text-white hover:border-cyan-500/30 px-6 py-3 rounded-xl text-sm font-medium transition-all"

@@ -11,10 +11,10 @@ const PHRASES = [
 ];
 
 const stats = [
-  { value: "3+", label: "Years Exp." },
+  { value: "2+", label: "Years Exp." },
   { value: "5+", label: "Gov. Platforms" },
+  { value: "20K+", label: "Daily Req." },
   { value: "8+", label: "Tech Stacks" },
-  { value: "100K+", label: "Users Served" },
 ];
 
 function TypewriterText() {
@@ -146,7 +146,7 @@ export default function Hero() {
           className="flex items-center gap-6 mb-16"
         >
           <a
-            href="https://github.com/KhomkritTK"
+            href="https://github.com/tonklasocute"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs text-slate-500 hover:text-white transition-colors font-medium"

@@ -4,40 +4,28 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Full Stack Developer",
-    company: "Nettec Co., Ltd.",
-    period: "2023 — Present",
+    role: "Software Engineer",
+    company: "AEC INFRACONNECT COMPANY LIMITED",
+    period: "Feb 2024 — Present",
     description:
-      "Developing scalable government e-service platforms end-to-end. Building high-throughput Go + Gin APIs with GORM, Redis caching, and MinIO storage. Leading frontend development with React and NestJS for multi-department systems serving thousands of citizens across Thailand.",
-    tags: ["Go", "Gin", "GORM", "React", "NestJS", "PostgreSQL", "Redis", "MinIO", "Docker"],
+      "Engineered backend services using Golang, Gin, and GORM for 5 large-scale government digital platforms across tourism, energy, and forestry sectors. Optimized PostgreSQL schemas, indexes, and queries for RESTful APIs, reducing data retrieval time and supporting high-traffic operations. Implemented clean architecture, authentication, and database transactions, improving system maintainability and reducing critical security vulnerabilities.",
+    tags: ["Golang", "Gin", "GORM", "PostgreSQL", "RESTful API", "Microservices", "Clean Architecture", "Docker"],
     current: true,
     icon: "🏢",
     accentColor: "border-cyan-500/60 bg-cyan-500/8",
     dotColor: "bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.6)]",
   },
   {
-    role: "Frontend Developer",
-    company: "Web Development",
-    period: "2022 — 2023",
+    role: "K2 Developer",
+    company: "CDSSOLUTION Corp., Ltd.",
+    period: "Oct 2023 — Jan 2024",
     description:
-      "Built responsive UIs and SPAs using React and Vue.js. Collaborated with designers to implement pixel-perfect interfaces and improved performance through code optimization and lazy loading strategies.",
-    tags: ["React", "Vue.js", "Tailwind CSS", "Vite", "TypeScript"],
+      "Developed and maintained business workflow applications using K2, streamlining internal business processes. Integrated frontend K2 forms with backend data sources using advanced SQL querying to ensure seamless data flow. Manipulated and fetched complex datasets to support dynamic application workflows across internal departments.",
+    tags: ["K2", "SQL", "Business Workflows", "Data Integration"],
     current: false,
-    icon: "💻",
+    icon: "⚙️",
     accentColor: "border-violet-500/30",
     dotColor: "bg-violet-500/60",
-  },
-  {
-    role: "Junior Developer",
-    company: "Early Career",
-    period: "2021 — 2022",
-    description:
-      "Started professional journey building web applications. Learned best practices in version control, code review, and agile development workflows. Contributed to team projects and improved debugging skills.",
-    tags: ["JavaScript", "HTML", "CSS", "Git", "PHP"],
-    current: false,
-    icon: "🌱",
-    accentColor: "border-slate-500/20",
-    dotColor: "bg-slate-500/50",
   },
 ];
 

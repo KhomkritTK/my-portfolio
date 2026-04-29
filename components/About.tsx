@@ -41,10 +41,10 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const stats = [
-  { target: 3, suffix: "+", label: "Years Experience", icon: "📅" },
-  { target: 5, suffix: "", label: "Gov. Platforms Shipped", icon: "🏛️" },
+  { target: 2, suffix: "+", label: "Years Experience", icon: "📅" },
+  { target: 5, suffix: "+", label: "Gov. Platforms Shipped", icon: "🏛️" },
+  { target: 20, suffix: "K+", label: "Daily Requests", icon: "📊" },
   { target: 8, suffix: "+", label: "Tech Stacks", icon: "⚙️" },
-  { target: 100, suffix: "K+", label: "Citizens Served", icon: "👥" },
 ];
 
 const focusAreas = [
@@ -118,17 +118,17 @@ export default function About() {
 
               <motion.p variants={fadeUp} className="text-slate-400 text-base leading-relaxed mb-4">
                 I&apos;m{" "}
-                <span className="text-white font-semibold">Khomkrit</span>, a Full Stack
-                Developer specializing in high-performance government e-service platforms.
-                I design and build systems end-to-end — from{" "}
-                <span className="text-cyan-400 font-medium">Go + Gin APIs</span> backed
-                by Redis and MinIO, to{" "}
-                <span className="text-violet-400 font-medium">React & NestJS frontends</span>{" "}
-                that serve thousands of citizens every day.
+                <span className="text-white font-semibold">Khomkrit</span>, a Backend Engineer
+                specializing in{" "}
+                <span className="text-cyan-400 font-medium">Golang and Microservices Architecture</span>,
+                building scalable platforms for national-scale government sectors.
+                Highly skilled in designing high-performance{" "}
+                <span className="text-violet-400 font-medium">RESTful APIs</span>{" "}
+                and optimizing PostgreSQL to deliver reliable, robust backend systems.
               </motion.p>
               <motion.p variants={fadeUp} className="text-slate-600 text-sm leading-relaxed mb-10">
-                Every platform I ship handles real government workflows — licensing,
-                inspections, and permit approvals — for real people across Thailand.
+                Every platform I ship serves real government workflows — tourism registration,
+                energy production, and forestry management — across Thailand.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex gap-3 flex-wrap">
@@ -172,7 +172,7 @@ export default function About() {
                   </div>
 
                   <p className="text-white font-bold text-lg">Khomkrit TK</p>
-                  <p className="text-slate-400 text-sm mt-1">Backend Developer</p>
+                  <p className="text-slate-400 text-sm mt-1">Backend Engineer</p>
                   <p className="text-slate-600 text-xs mt-1">Thailand 🇹🇭</p>
 
                   {/* Status */}
