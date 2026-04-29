@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
+import { useSection } from "@/context/section";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -86,6 +86,7 @@ const staggerContainer: Variants = {
 };
 
 export default function About() {
+  const { go } = useSection();
   return (
     <section id="about" className="bg-[#03070f]">
 
@@ -133,21 +134,21 @@ export default function About() {
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex gap-3 flex-wrap">
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => go("contact")}
                   className="btn-neon inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold shadow-lg shadow-cyan-500/20"
                 >
                   Get in Touch
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
-                <Link
-                  href="/projects"
+                </button>
+                <button
+                  onClick={() => go("projects")}
                   className="glass border border-white/10 text-white inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold hover:border-white/20 transition-all"
                 >
                   View Work
-                </Link>
+                </button>
               </motion.div>
             </motion.div>
 

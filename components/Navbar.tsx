@@ -1,21 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSection, type SectionId } from "@/context/section";
 
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Experience", href: "/experience" },
-  { label: "Contact", href: "/contact" },
+const navLinks: { label: string; id: SectionId }[] = [
+  { label: "About", id: "about" },
+  { label: "Projects", id: "projects" },
+  { label: "Experience", id: "experience" },
+  { label: "Contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const { active, go } = useSection();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -23,9 +22,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
+  function handleNav(id: SectionId) {
+    go(id);
     setMenuOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header
@@ -35,23 +35,26 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-2">
+        <button
+          onClick={() => handleNav("hero")}
+          className="group flex items-center gap-2"
+        >
           <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center text-xs font-black text-white shadow-lg shadow-cyan-500/25">
             K
           </span>
           <span className="text-sm font-bold text-white tracking-tight group-hover:text-cyan-400 transition-colors">
             KhomkritTK
           </span>
-        </Link>
+        </button>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = active === link.id;
             return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
+              <li key={link.id}>
+                <button
+                  onClick={() => handleNav(link.id)}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                     isActive ? "text-cyan-400" : "text-slate-400 hover:text-white"
                   }`}
@@ -64,14 +67,17 @@ export default function Navbar() {
                     />
                   )}
                   <span className="relative">{link.label}</span>
-                </Link>
+                </button>
               </li>
             );
           })}
           <li className="ml-3">
-            <Link href="/contact" className="btn-neon text-sm px-5 py-2 rounded-xl">
+            <button
+              onClick={() => handleNav("contact")}
+              className="btn-neon text-sm px-5 py-2 rounded-xl"
+            >
               Hire Me
-            </Link>
+            </button>
           </li>
         </ul>
 
@@ -109,22 +115,22 @@ export default function Navbar() {
             className="md:hidden glass-dark border-t border-white/5 px-6 py-4 flex flex-col gap-2"
           >
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors py-2 px-3 rounded-lg hover:bg-white/5 ${
-                  pathname === link.href ? "text-cyan-400" : "text-slate-300 hover:text-cyan-400"
+              <button
+                key={link.id}
+                onClick={() => handleNav(link.id)}
+                className={`text-sm font-medium transition-colors py-2 px-3 rounded-lg hover:bg-white/5 text-left ${
+                  active === link.id ? "text-cyan-400" : "text-slate-300 hover:text-cyan-400"
                 }`}
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
-            <Link
-              href="/contact"
+            <button
+              onClick={() => handleNav("contact")}
               className="btn-neon text-sm px-4 py-2.5 rounded-xl text-center mt-1"
             >
               Hire Me
-            </Link>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

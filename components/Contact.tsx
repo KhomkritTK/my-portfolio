@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useSection } from "@/context/section";
 
 const socialLinks = [
   {
@@ -69,6 +70,7 @@ const socialLinks = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const { go } = useSection();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -245,7 +247,7 @@ export default function Contact() {
             © 2025 <span className="text-slate-400 font-medium">Khomkrit TK</span> — Built with Next.js & Tailwind CSS
           </p>
           <div className="flex items-center gap-5 text-sm text-slate-600">
-            <a href="/" className="hover:text-cyan-400 transition-colors">Back to top ↑</a>
+            <button onClick={() => go("hero")} className="hover:text-cyan-400 transition-colors">Back to top ↑</button>
             <a
               href="https://github.com/tonklasocute"
               target="_blank"

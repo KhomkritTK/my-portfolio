@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { useSection } from "@/context/section";
 
 const PHRASES = [
   "Scalable Backend Systems",
@@ -59,6 +59,7 @@ function TypewriterText() {
 }
 
 export default function Hero() {
+  const { go } = useSection();
   return (
     <section
       id="hero"
@@ -125,18 +126,18 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.55 }}
           className="flex flex-wrap items-center justify-center gap-4 mb-14"
         >
-          <Link
-            href="/projects"
+          <button
+            onClick={() => go("projects")}
             className="btn-neon px-8 py-3.5 rounded-xl text-sm font-semibold shadow-xl shadow-cyan-500/20"
           >
             View My Work →
-          </Link>
-          <Link
-            href="/contact"
+          </button>
+          <button
+            onClick={() => go("contact")}
             className="glass border border-white/10 text-white px-8 py-3.5 rounded-xl text-sm font-semibold hover:border-cyan-500/30 hover:bg-white/5 transition-all duration-300"
           >
             Get in Touch
-          </Link>
+          </button>
         </motion.div>
 
         {/* Social links */}
@@ -198,8 +199,8 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.a
-        href="/about"
+      <motion.button
+        onClick={() => go("about")}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
@@ -217,7 +218,7 @@ export default function Hero() {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
         </motion.svg>
-      </motion.a>
+      </motion.button>
     </section>
   );
 }
